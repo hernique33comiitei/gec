@@ -1,15 +1,19 @@
 #!/bin/bash
 
-# Set the full path to the installation directory (changed to /usr/local/bin/)
-INSTALL_DIR="/usr/local/bin/"
+# Set the full path to the installation directory 
+INSTALL_DIR="/usr/gec"
 
 # Clone the repository from GitHub
 git clone https://github.com/hernique33comiitei/gec.git "$INSTALL_DIR"
 
-# Create an alias for the gec script
-echo "alias gec='python ${INSTALL_DIR}/gec/index.py'" >> ~/.bashrc
+# Create an alias for the gec script 
 
-# Load changes from the shell configuration file
-source ~/.bashrc
+#bash
+# echo "alias gec='python3 ${INSTALL_DIR}/index.py'" >> ~/.bashrc
 
-echo "The installation is complete! You can now use the 'gce' command to run the script."
+#zsh
+#echo "alias gec='python3 ${INSTALL_DIR}/index.py'" >> ~/.zshrc
+
+
+source ~/.zshrc && echo "The installation is complete! You can now use the 'gec' command to run the script."
+
