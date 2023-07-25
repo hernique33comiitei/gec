@@ -1,8 +1,25 @@
 ## GEC (Git Easy Commit)
 
+---
+
+<p align="center">
+  <img src="./media/finish_gec.gif" alt="gec finish commit">
+</p>
+
+---
+
+<details>
+  <summary>Exit :small_red_triangle_down:</summary>
+  <p align="center">
+    <img src="./media/exit_gec.gif" alt="gec exit commit">
+  </p>
+</details>
+
+---
+
 GEC (Git Easy Commit) is an open source tool that facilitates the creation of standardized commits in Git projects. With GEC, you can create consistent commits following a predefined pattern, making your repository history clearer and more understandable.
 
-### Installation
+### Installation :computer:
 
 To install GEC on your system, run the following command in your terminal:
 
@@ -14,7 +31,7 @@ curl -fsSL https://raw.githubusercontent.com/hernique33comiitei/gec/main/scripts
 
 This command will download and run the GEC installation script directly from the GitHub repository, configuring the tool in your environment.
 
-### How to Use
+### How to Use :question:
 
 After successful installation, you can easily use the GEC in your Git repository. Just navigate to the project directory and use the following command to commit:
 
@@ -26,15 +43,15 @@ git push
 
 The GEC will guide you through the commit creation process, allowing you to select the category, add a message and optionally add a more detailed description. With GEC, you can maintain a consistent pattern for your commit messages, improving collaboration and understanding of project development.
 
-### Contribution
+### Contribution :busts_in_silhouette:
 
 The GEC project is open source and accepts contributions from the community. If you encounter issues or have suggestions for improvements, feel free to open an issue or submit a pull request on the GitHub repository.
 
-### License
+### License :page_facing_up:
 
 This project is licensed under the GNU License - see the archive [LICENSE](https://github.com/hernique33comiitei/gec/blob/main/LICENSE) for more details.
 
-### Uninstallation
+### Uninstallation :x:
 
 To uninstall GEC on your system, run the following command in your terminal:
 
