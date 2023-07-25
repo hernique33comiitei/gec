@@ -41,7 +41,6 @@ def menu(optionsType):
 def pushDatas(message):
     try:
         os.system(f"git commit -m '{message}'")
-        os.system("git push")
 
     except:
         textErro = generateTextStyle("ERROR", Fore.RED)
