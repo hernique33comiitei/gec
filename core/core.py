@@ -2,7 +2,7 @@ import os
 import pyfiglet
 from colorama import Fore, Style
 from PyInquirer import prompt
-from utils.utils import *
+from utils.utils import optionsTypeList, left
 
 
 def generateTextStyle(text, style=Fore.CYAN):
@@ -10,35 +10,44 @@ def generateTextStyle(text, style=Fore.CYAN):
     return f"{style}{textArt}{Style.RESET_ALL}"
 
 
-def menu(optionsType):
-    questionType = [
-        {
-            'type': 'list',
-            'name': 'type',
-            'message': 'select an option:',
-            'choices': optionsType
-        }
-    ]
+def createQuestion(type, name, message, choices=None):
+    selectQuestionForType = {
+        'list': [{
+            'type': type,
+            'name': name,
+            'message': message,
+            'choices': choices
+        }],
+        'input': [{
+            'type': type,
+            'name': name,
+            'message': message
+        }]
+    }
+
+    return selectQuestionForType[type]
+
+
+def menu():
+    questionType = createQuestion(
+        'list', 'type', 'select an option:', optionsTypeList)
+
     responseType = prompt(questionType)
-    indexType = optionsType.index(responseType['type'])
+    indexType = optionsTypeList.index(responseType['type'])
 
     if optionsTypeList[indexType] == left:  # this is select close option
         return
 
-    questionDescription = [
-        {
-            'type': 'input',
-            'name': 'description',
-            'message': 'enter a description: '
-        }
-    ]
-    responseDescription = prompt(questionDescription)
+    questionDescription = createQuestion(
+        'input', 'description', 'enter a description: ')
 
+    responseDescription = prompt(questionDescription)
     responseFinishArray = [indexType, responseDescription['description']]
+
     return responseFinishArray
 
 
-def pushDatas(message):
+def commitDatas(message):
     try:
         os.system(f"git commit -m '{message}'")
 
@@ -48,7 +57,7 @@ def pushDatas(message):
 
 
 def generateMessage():
-    responsesMenu = menu(optionsTypeList)
+    responsesMenu = menu()
 
     if not responsesMenu:
         textClose = generateTextStyle("SEE YOU LATER")
@@ -57,4 +66,4 @@ def generateMessage():
     typeText = optionsTypeList[responsesMenu[0]]
     message = f"{typeText}{responsesMenu[1].capitalize()}"
 
-    return pushDatas(message)
+    return commitDatas(message)
